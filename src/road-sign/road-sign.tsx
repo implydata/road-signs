@@ -1,26 +1,20 @@
+import { Popover, Position } from '@blueprintjs/core';
 import React from 'react';
-import { Manager, Popper, Reference } from 'react-popper';
+
+import './road-sign.scss';
 
 interface RoadSignProps {
   children: JSX.Element;
+  position: Position;
+  content: JSX.Element;
+  active: boolean;
 }
 
+export const ROAD_SIGN_CONTENT_CLASSNAME = 'road-sign-content';
 export function RoadSign(props: RoadSignProps) {
   return (
-    <Manager>
-      <Reference>
-        {({ ref }) => {
-          return React.cloneElement(props.children, { ref });
-        }}
-      </Reference>
-      <Popper placement="right">
-        {({ ref, style, placement, arrowProps }) => (
-          <div ref={ref} style={style} data-placement={placement}>
-            Popper element
-            <div ref={arrowProps.ref} style={arrowProps.style} />
-          </div>
-        )}
-      </Popper>
-    </Manager>
+    <Popover content={props.content} position={props.position} autoFocus={false}>
+      {props.children}
+    </Popover>
   );
 }
