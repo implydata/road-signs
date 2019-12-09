@@ -1,0 +1,29 @@
+{
+  "name": "road-signs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/implydata/road-signs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/implydata/road-signs/issues"
+  },
+  "homepage": "https://github.com/implydata/road-signs#readme",
+  "devDependencies": {
+    "hear-ye": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "popper.js": "^1.16.0"
+  }
+}
