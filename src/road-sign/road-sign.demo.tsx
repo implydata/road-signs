@@ -13,7 +13,9 @@ function Demo() {
   return (
     <SideBySide>
       <Sink>
-        <RoadSign />
+        <RoadSign>
+          <input type="text" />
+        </RoadSign>
       </Sink>
       <ApiDoc interfaceName="RoadSign" />
     </SideBySide>
