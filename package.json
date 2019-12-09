@@ -15,15 +15,32 @@
   "bugs": {
     "url": "https://github.com/implydata/road-signs/issues"
   },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 100,
+    "endOfLine": "lf"
+  },
   "homepage": "https://github.com/implydata/road-signs#readme",
   "devDependencies": {
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "awesome-code-style": "^1.4.3",
+    "css-loader": "^3.3.0",
     "hear-ye": "^3.0.0",
     "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.3",
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
     "popper.js": "^1.16.0"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }

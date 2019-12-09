@@ -1,8 +1,6 @@
-const process = require('process');
-const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
-    caladan: './src/index.ts',
+    'road-signs': './src/index.ts',
   },
   module: {
     rules: [
@@ -45,15 +43,7 @@ module.exports = {
     libraryTarget: 'umd',
   },
   externals: {
-    '@implydata/little-pictures': '@implydata/little-pictures',
-    '@implydata/beltful': '@implydata/beltful',
     react: 'react',
     'react-dom': 'react-dom',
   },
-  plugins: [
-    new CopyPlugin(
-      [{ from: 'caladan-utils.scss', to: '' }, { from: 'styles/**/*.utils.scss', to: '' }],
-      { context: './src' },
-    ),
-  ],
 };
