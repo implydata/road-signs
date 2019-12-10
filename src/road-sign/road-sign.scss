@@ -3,5 +3,19 @@
 
   &.active {
     opacity: 1;
+    @keyframes spin {
+      0%{
+        transform:rotate(0deg)
+                  translate(-3px)
+                  rotate(0deg);
+      
+      }
+      100%{
+        transform:rotate(360deg)
+                  translate(-3px)
+                  rotate(-360deg);
+      }
+    }
+    animation: spin 2s linear infinite;
   }
 }
