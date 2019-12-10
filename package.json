@@ -1,6 +1,6 @@
 {
   "name": "road-signs",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "keywords": [
     "road",
     "sign"
@@ -11,6 +11,9 @@
   "description": "",
   "main": "build/road-signs.js",
   "typings": "build/index.d.ts",
+  "scripts": {
+    "build": "webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/implydata/road-signs.git"
