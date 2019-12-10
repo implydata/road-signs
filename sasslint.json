@@ -1,0 +1,6 @@
+{
+  "extends": "awesome-code-style/sasslint.json",
+  "rules": {
+    "no-duplicate-at-import-rules": null
+  }
+}

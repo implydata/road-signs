@@ -3,19 +3,42 @@
 
   &.active {
     opacity: 1;
-    @keyframes spin {
-      0%{
-        transform:rotate(0deg)
-                  translate(-3px)
-                  rotate(0deg);
-      
+
+    --tx: 0;
+    --ty: 0;
+
+    &.bottom {
+      --ty: -3px;
+    }
+
+    &.top {
+      --ty: 3px;
+    }
+
+    &.left {
+      --tx: -3px;
+    }
+
+    &.right {
+      --tx: 3px;
+    }
+
+    @keyframes wiggle {
+      0% {
+        transform: translate(0, 0);
       }
-      100%{
-        transform:rotate(360deg)
-                  translate(-3px)
-                  rotate(-360deg);
+
+      50% {
+        transform: translate(var(--tx), var(--ty));
+      }
+
+      100% {
+        transform: translate(0, 0);
       }
     }
-    animation: spin 2s linear infinite;
+
+    &:not(:hover) {
+      animation: wiggle 1s linear infinite;
+    }
   }
 }

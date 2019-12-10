@@ -12,9 +12,11 @@ export interface RoadSignProps extends React.Props<any> {
 
 export const ROAD_SIGN_CONTENT_CLASSNAME = 'road-sign-content';
 export function RoadSign(props: RoadSignProps) {
-  const { content, position, children, active } = props;
+  let { content, position, children, active } = props;
 
   if (!children) return null;
+
+  position = position || Position.TOP;
 
   return (
     <Popover
@@ -24,7 +26,7 @@ export function RoadSign(props: RoadSignProps) {
       content={content}
       position={position}
       autoFocus={false}
-      popoverClassName={classNames('road-sign-popover', { active })}
+      popoverClassName={classNames('road-sign-popover', position, { active })}
     >
       {children}
     </Popover>
