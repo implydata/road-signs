@@ -4,7 +4,7 @@ import React from 'react';
 
 import './road-sign.scss';
 
-interface RoadSignProps extends React.Props<any> {
+export interface RoadSignProps extends React.Props<any> {
   position?: Position;
   content: JSX.Element;
   active?: boolean;
@@ -18,6 +18,7 @@ export function RoadSign(props: RoadSignProps) {
 
   return (
     <Popover
+      className="road-sign"
       isOpen
       boundary="window"
       content={content}
