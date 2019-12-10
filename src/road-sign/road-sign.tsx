@@ -16,7 +16,7 @@ export function RoadSign(props: RoadSignProps) {
 
   if (!children) return null;
 
-  if (!active) return children;
+  if (!active) return children as JSX.Element;
 
   position = position || Position.TOP;
 
