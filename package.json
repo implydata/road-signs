@@ -11,9 +11,6 @@
   "description": "",
   "main": "build/road-signs.js",
   "typings": "build/index.d.ts",
-  "scripts": {
-    "test": "npm run test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/implydata/road-signs.git"
