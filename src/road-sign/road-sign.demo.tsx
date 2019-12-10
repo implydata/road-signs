@@ -9,6 +9,7 @@ import { Position } from '@blueprintjs/core';
 import { RoadSign } from '@implydata/caladan';
 import { ApiDoc, Gallery, SideBySide, Sink } from 'hear-ye';
 import * as React from 'react';
+
 import { RoadSignContent } from '../road-sign-content/road-sign-content';
 
 function Demo() {
@@ -17,7 +18,7 @@ function Demo() {
       <Sink>
         <RoadSign
           active
-          position={Position.BOTTOM_LEFT}
+          position={Position.LEFT}
           content={<RoadSignContent title="a-title" content="some content" />}
         >
           <input type="text" />

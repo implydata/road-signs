@@ -1,3 +1,6 @@
 {
-  "topLevelImports": ["import '../css-reset.css';"]
+  "topLevelImports": [
+    "import '../css-reset.css';",
+    "import '../../node_modules/@blueprintjs/core/lib/css/blueprint';"
+  ]
 }

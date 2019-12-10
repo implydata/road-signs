@@ -1,20 +1,31 @@
 import { Popover, Position } from '@blueprintjs/core';
+import classNames from 'classnames';
 import React from 'react';
 
 import './road-sign.scss';
 
-interface RoadSignProps {
-  children: JSX.Element;
-  position: Position;
+interface RoadSignProps extends React.Props<any> {
+  position?: Position;
   content: JSX.Element;
-  active: boolean;
+  active?: boolean;
 }
 
 export const ROAD_SIGN_CONTENT_CLASSNAME = 'road-sign-content';
 export function RoadSign(props: RoadSignProps) {
+  const { content, position, children, active } = props;
+
+  if (!children) return null;
+
   return (
-    <Popover content={props.content} position={props.position} autoFocus={false}>
-      {props.children}
+    <Popover
+      isOpen
+      boundary="window"
+      content={content}
+      position={position}
+      autoFocus={false}
+      popoverClassName={classNames('road-sign-popover', { active })}
+    >
+      {children}
     </Popover>
   );
 }
