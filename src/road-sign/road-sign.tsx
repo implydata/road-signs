@@ -20,9 +20,12 @@ export function RoadSign(props: RoadSignProps) {
 
   position = position || Position.TOP;
 
+  const className = (children as JSX.Element).props.className;
+  const e = React.cloneElement(children as JSX.Element, { className: '' });
+
   return (
     <Popover
-      className="road-sign"
+      className={classNames('road-sign', className)}
       isOpen
       boundary="window"
       content={content}
@@ -30,7 +33,7 @@ export function RoadSign(props: RoadSignProps) {
       autoFocus={false}
       popoverClassName={classNames('road-sign-popover', position, { active })}
     >
-      {children}
+      {e}
     </Popover>
   );
 }
