@@ -14,7 +14,7 @@ export const ROAD_SIGN_CONTENT_CLASSNAME = 'road-sign-content';
 export function RoadSign(props: RoadSignProps) {
   let { content, position, children, active } = props;
 
-  if (!children) return null;
+  if (!children || !active) return null;
 
   position = position || Position.TOP;
 
