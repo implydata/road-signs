@@ -1,9 +1,8 @@
-import { HTMLDivProps } from '@blueprintjs/core';
 import React from 'react';
 
 import './road-sign-content.scss';
 
-interface RoadSignContentProps extends HTMLDivProps {
+interface RoadSignContentProps extends React.HTMLProps<any> {
   content: string;
   title?: string;
 }

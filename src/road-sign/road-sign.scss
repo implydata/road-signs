@@ -1,4 +1,77 @@
-.road-sign-popover {
+.road-sign {
+  background-color: white;
+  box-shadow: 0 0 4px 0 rgba(black, 0.35);
+  border-radius: 2px;
+
+  .shpitz {
+    $shpitz-size: 12px;
+    $shpitz-clip-size: 40px;
+
+    position: absolute;
+    width: $shpitz-clip-size;
+    height: $shpitz-clip-size;
+    overflow: hidden;
+    pointer-events: none;
+
+    > .rectangle {
+      position: absolute;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: $shpitz-size;
+        height: $shpitz-size;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background: white;
+        box-shadow: 0 0 4px 0 rgba(black, 0.35);
+      }
+    }
+
+    &.top {
+      bottom: $shpitz-clip-size * -1;
+      left: 50%;
+      transform: translate(-50%, 0);
+
+      > .rectangle {
+        bottom: 100%;
+        left: 50%;
+      }
+    }
+
+    &.bottom {
+      top: $shpitz-clip-size * -1;
+      left: 50%;
+      transform: translate(-50%, 0);
+
+      > .rectangle {
+        top: 100%;
+        left: 50%;
+      }
+    }
+
+    &.left {
+      right: $shpitz-clip-size * -1;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      > .rectangle {
+        right: 100%;
+        top: 50%;
+      }
+    }
+
+    &.right {
+      left: $shpitz-clip-size * -1;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      > .rectangle {
+        left: 100%;
+        top: 50%;
+      }
+    }
+  }
+
   opacity: 0.3;
 
   &.active {

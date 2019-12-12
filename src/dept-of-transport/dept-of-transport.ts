@@ -1,3 +1,8 @@
 import React from 'react';
 
-export const DeptOfTransport = React.createContext<Boolean>(false);
+export interface DeptOfTransportContext {
+  enabled?: boolean;
+  activeStep?: string;
+}
+
+export const DeptOfTransport = React.createContext<DeptOfTransportContext>({});

@@ -33,7 +33,6 @@
   },
   "homepage": "https://github.com/implydata/road-signs#readme",
   "devDependencies": {
-    "@blueprintjs/core": "^3.22.1",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
@@ -47,10 +46,10 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "popper.js": "^1.16.0"
   },
   "peerDependencies": {
-    "@blueprintjs/core": "^3.22.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }

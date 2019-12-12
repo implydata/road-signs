@@ -1,47 +1,79 @@
-import { Popover, Position } from '@blueprintjs/core';
 import classNames from 'classnames';
+import Popper from 'popper.js';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { DeptOfTransport } from '../dept-of-transport/dept-of-transport';
 
 import './road-sign.scss';
 
 export interface RoadSignProps extends React.Props<any> {
-  position?: Position;
+  position?: Popper.Placement;
   content: JSX.Element;
-  active?: boolean;
+  id: string;
+  children: JSX.Element;
 }
 
-export const ROAD_SIGN_CONTENT_CLASSNAME = 'road-sign-content';
 export function RoadSign(props: RoadSignProps) {
-  let { content, position, children, active } = props;
+  const { content, children, id } = props;
+  const [placement, setPlacement] = React.useState(props.position || 'top');
 
-  if (!children) return null;
+  const ref = React.useRef<HTMLElement>();
+  const tooltip = React.useRef<HTMLDivElement | null>(null);
+  const popperInstance = React.useRef<Popper>();
 
-  if (!active) return children as JSX.Element;
+  const onUpdate = (dataObject: Popper.Data) => {
+    setPlacement(dataObject.placement);
+  };
+
+  const applyStyle = (dataObject: Popper.Data) => {
+    const p = (dataObject as any).popper;
+    dataObject.instance.popper.setAttribute(
+      'style',
+      `position: absolute; top: ${p.top}px; left: ${p.left}px`,
+    );
+
+    return dataObject;
+  };
+
+  React.useEffect(() => {
+    if (ref.current && tooltip.current) {
+      if (popperInstance.current) {
+        popperInstance.current.scheduleUpdate();
+      } else {
+        popperInstance.current = new Popper(ref.current, tooltip.current, {
+          placement,
+          onUpdate,
+          modifiers: {
+            preventOverflow: { boundariesElement: 'window' },
+            applyStyle: { fn: applyStyle },
+          },
+        });
+      }
+    }
+  });
 
   return (
     <DeptOfTransport.Consumer>
-      {enabled => {
-        if (!enabled) return children as JSX.Element;
-
-        position = position || Position.TOP;
-
-        const className = (children as JSX.Element).props.className;
-        const e = React.cloneElement(children as JSX.Element, { className: '' });
+      {({ enabled, activeStep }) => {
+        if (!enabled) return children;
 
         return (
-          <Popover
-            className={classNames('road-sign', className)}
-            isOpen
-            boundary="window"
-            content={content}
-            position={position}
-            autoFocus={false}
-            popoverClassName={classNames('road-sign-popover', position, { active })}
-          >
-            {e}
-          </Popover>
+          <>
+            {React.cloneElement(children, { ref })}
+            {ReactDOM.createPortal(
+              <div
+                className={classNames('road-sign', placement, { active: activeStep === id })}
+                ref={tooltip}
+              >
+                <div className={classNames('shpitz', placement)}>
+                  <div className="rectangle" />
+                </div>
+                {content}
+              </div>,
+              document.body,
+            )}
+          </>
         );
       }}
     </DeptOfTransport.Consumer>
