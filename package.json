@@ -38,7 +38,7 @@
     "@types/react-dom": "^16.9.4",
     "awesome-code-style": "^1.4.3",
     "css-loader": "^3.3.0",
-    "hear-ye": "^3.0.0",
+    "hear-ye": "^4.0.2",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.1",
     "ts-loader": "^6.2.1",
